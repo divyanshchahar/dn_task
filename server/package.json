@@ -8,7 +8,7 @@
 		"mongoose": "^8.3.5"
 	},
 	"scripts": {
-		"dev": "nodemon src/index.js"
+		"dev": "node --watch --env-file=.env.example ./src/index.js"
 	},
 	"devDependencies": {
 		"nodemon": "^3.1.0"
