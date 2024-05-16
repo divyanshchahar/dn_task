@@ -11,7 +11,7 @@ const createConnection = async () => {
 	try {
 	} catch (error) {
 		console.error(
-			`The following erreo occurred while connectiong to DB: ${error}`
+			`The following error occurred while connectiong to DB: ${error}`
 		);
 	}
 };
