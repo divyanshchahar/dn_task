@@ -1,19 +1,43 @@
+// ###########
+// # IMPORTS #
+// ###########
 const mongoose = require('mongoose');
+const express = require('express');
+const entriesRouter = require('./router/entriesRouter');
 
-// establishing connection to database using promise based approach
-const createConnection = async () => {
-	const connection = await mongoose
-		.createConnection(process.env.DB)
-		.asPromise();
+// ############
+// # DATABASE #
+// ############
 
-	if (connection.readyState) console.log('Established connection to database');
+// Adding event listner
+mongoose.connection.on('connected', () =>
+	console.log('Established connection to Database')
+);
 
-	try {
-	} catch (error) {
+// Establishing DB connection
+mongoose.connect(process.env.DB).catch((error) => {
+	console.log(`connecting to DB resulted in the following error ${error}`);
+});
+
+const port = process.env.PORT || 8000; // port
+
+const app = express(); // instance of express app
+
+// ##############
+// # MIDDLEwARE #
+// ##############
+app.use(express.json());
+
+// Router middlewares
+app.use('/entries', entriesRouter);
+
+// Launching Application
+app.listen(port, (error) => {
+	if (error) {
 		console.error(
-			`The following error occurred while connectiong to DB: ${error}`
+			`trying to listen on ${port} resulted in following error ${error}`
 		);
+		return;
 	}
-};
-
-createConnection();
+	console.log(`app is listening on port ${port}`);
+});
