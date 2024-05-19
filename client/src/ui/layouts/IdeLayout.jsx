@@ -1,9 +1,10 @@
 import React from 'react';
 import { useResizable } from 'react-resizable-layout';
-import SampleSplitter from '../components/SplitterComponent';
 import cn from '../../utils/cn';
+import SampleSplitter from '../components/SplitterComponent';
+import CardLayout from './CardLayout';
 import DataLayout from './DataLayout';
-import FormLayout from './FormLayout';
+import apiEndpoints from '../../config/apiEndpoints.json';
 
 const IdeClone = () => {
 	const {
@@ -37,7 +38,7 @@ const IdeClone = () => {
 					className={cn('shrink-0', isLeftPannelDragging && 'dragging')}
 					style={{ width: leftPannelW }}
 				>
-					<DataLayout name="Left Pannel" content="This some content" />
+					<CardLayout url={apiEndpoints.leftRoute} />
 				</div>
 
 				<SampleSplitter
@@ -47,7 +48,7 @@ const IdeClone = () => {
 
 				{/* RIGHT PANNEL-2 */}
 				<div className={'flex grow'}>
-					<DataLayout name="Right Pannel" content="This some content" />
+					<CardLayout url={apiEndpoints.rightRoute} />
 				</div>
 			</div>
 
@@ -62,7 +63,7 @@ const IdeClone = () => {
 				className={cn('shrink-0', isBottomPannelDragging && 'dragging')}
 				style={{ height: bottomPannelH, overflow: 'scroll' }}
 			>
-				<DataLayout name="Bottom Pannel" content="This some content" />
+				<CardLayout url={apiEndpoints.bottomRoute} />
 			</div>
 		</div>
 	);
