@@ -1,7 +1,14 @@
 import './App.css';
+import './style/IdeClone.css';
+import './style/SampleSplitter.css';
+import IdeLayout from './ui/layouts/IdeLayout';
 
 function App() {
-	return <h1>Test</h1>;
+	return (
+		<>
+			<IdeLayout />
+		</>
+	);
 }
 
 export default App;
