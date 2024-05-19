@@ -117,9 +117,10 @@ function CardLayout({ url }) {
 					submitHandler={updateData}
 				/>
 			)}
+
 			{display === displaystates.count && (
 				<>
-					<h1>{`Count : ${count}`}</h1>
+					<h1>{`count : ${count}`}</h1>
 					<button
 						onClick={() => {
 							setDisplay(displaystates.sucess);
