@@ -117,9 +117,16 @@ function CardLayout({ url }) {
 					submitHandler={updateData}
 				/>
 			)}
+<<<<<<< Updated upstream
 			{display === displaystates.count && (
 				<>
 					<h1>{`Count : ${count}`}</h1>
+=======
+
+			{display === displaystates.count && (
+				<>
+					<h1>{`count : ${count}`}</h1>
+>>>>>>> Stashed changes
 					<button
 						onClick={() => {
 							setDisplay(displaystates.sucess);
