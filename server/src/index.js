@@ -4,6 +4,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const entriesRouter = require('./router/entriesRouter');
+const cors = require('cors');
 
 // ############
 // # DATABASE #
@@ -21,11 +22,19 @@ mongoose.connect(process.env.DB).catch((error) => {
 
 const port = process.env.PORT || 8000; // port
 
+const corsOption = {
+	origin: process.env.ORIGIN,
+	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+};
+
 const app = express(); // instance of express app
 
 // ##############
 // # MIDDLEwARE #
 // ##############
+
+app.use(cors(corsOption));
+
 app.use(express.json());
 
 // Router middlewares
