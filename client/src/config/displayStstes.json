@@ -3,5 +3,6 @@
 	"sucess": "sucess",
 	"failed": "failed",
 	"add": "add",
-	"update": "update"
+	"update": "update",
+	"count": "count"
 }
