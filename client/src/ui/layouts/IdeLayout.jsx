@@ -3,8 +3,6 @@ import { useResizable } from 'react-resizable-layout';
 import cn from '../../utils/cn';
 import SampleSplitter from '../components/SplitterComponent';
 import CardLayout from './CardLayout';
-import DataLayout from './DataLayout';
-import apiEndpoints from '../../config/apiEndpoints.json';
 
 const IdeClone = () => {
 	const {
@@ -38,7 +36,7 @@ const IdeClone = () => {
 					className={cn('shrink-0', isLeftPannelDragging && 'dragging')}
 					style={{ width: leftPannelW }}
 				>
-					<CardLayout url={apiEndpoints.leftRoute} />
+					<CardLayout url={process.env.REACT_APP_ID1} />
 				</div>
 
 				<SampleSplitter
@@ -48,7 +46,7 @@ const IdeClone = () => {
 
 				{/* RIGHT PANNEL-2 */}
 				<div className={'flex grow'}>
-					<CardLayout url={apiEndpoints.rightRoute} />
+					<CardLayout url={process.env.REACT_APP_ID2} />
 				</div>
 			</div>
 
@@ -63,7 +61,7 @@ const IdeClone = () => {
 				className={cn('shrink-0', isBottomPannelDragging && 'dragging')}
 				style={{ height: bottomPannelH, overflow: 'scroll' }}
 			>
-				<CardLayout url={apiEndpoints.bottomRoute} />
+				<CardLayout url={process.env.REACT_APP_ID3} />
 			</div>
 		</div>
 	);

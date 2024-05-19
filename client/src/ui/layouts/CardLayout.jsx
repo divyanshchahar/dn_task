@@ -12,7 +12,9 @@ function CardLayout({ url }) {
 		try {
 			setDisplay(displaystates.pending);
 
-			const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${url}`);
+			const response = await fetch(
+				`${process.env.REACT_APP_BASE_URL}/entries/${url}`
+			);
 
 			const data = await response.json();
 
@@ -93,6 +95,8 @@ function CardLayout({ url }) {
 
 					<button onClick={() => setDisplay(displaystates.add)}>Add</button>
 
+					<button onClick={() => setDisplay(displaystates.count)}>Count</button>
+
 					<DataLayout name={data.name} content={data.content} />
 				</>
 			)}
@@ -112,6 +116,18 @@ function CardLayout({ url }) {
 					contentProp={data.content}
 					submitHandler={updateData}
 				/>
+			)}
+			{display === displaystates.count && (
+				<>
+					<h1>{`Count : ${count}`}</h1>
+					<button
+						onClick={() => {
+							setDisplay(displaystates.sucess);
+						}}
+					>
+						Close
+					</button>
+				</>
 			)}
 		</>
 	);
