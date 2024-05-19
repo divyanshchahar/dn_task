@@ -5,7 +5,7 @@ function FormLayout({ nameProp = '', contentProp = '', submitHandler }) {
 	const [content, setContent] = useState(contentProp);
 
 	return (
-		<form>
+		<>
 			<div>
 				<input
 					type="text"
@@ -22,20 +22,19 @@ function FormLayout({ nameProp = '', contentProp = '', submitHandler }) {
 					placeholder="content"
 					value={content}
 					onChange={(e) => {
-						setContent(e.target.content);
+						setContent(e.target.value);
 					}}
 				/>
 			</div>
 
-			<input
-				type="submit"
-				onSubmit={(e) => {
-					e.preventDefault();
-
+			<button
+				onClick={() => {
 					submitHandler(name, content);
 				}}
-			/>
-		</form>
+			>
+				Submit
+			</button>
+		</>
 	);
 }
 
