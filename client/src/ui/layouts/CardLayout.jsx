@@ -77,7 +77,7 @@ function CardLayout({ url }) {
 	// loading data on render
 	useEffect(() => {
 		getData();
-	}, []);
+	}, [getData]);
 
 	return (
 		<>
